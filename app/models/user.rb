@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :timeoutable, :trackable
+         :recoverable, :rememberable, :validatable
   belongs_to :event
   belongs_to :event_participant
 
