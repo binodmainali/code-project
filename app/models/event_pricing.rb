@@ -1,0 +1,2 @@
+class EventPricing < ApplicationRecord
+end

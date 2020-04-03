@@ -7,7 +7,22 @@
     :html => { :role => "form" }) do |f| %>
 
     <%= devise_error_messages! %>
-
+    <div class="form-group">
+      <%= f.label :name %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :gender %>
+      <div class="row">
+        <div class="col-sm-3">
+          <%= f.select :gender, %w(Male Female), class: "dropdown btn btn-secondary dropdown-toggle" %>
+        </div>
+      </div>
+    </div>
     <div class="form-group">
       <%= f.label :email %>
       <div class="row">

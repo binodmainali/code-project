@@ -15,6 +15,9 @@ gem 'devise'
 
 group :development, :test do
   gem 'mysql2', '0.4.4'
+  gem 'rspec-rails', '~> 4.0.0'
+  gem 'awesome_print'
+  gem 'pry-rails'
 end
 
 group :development do
