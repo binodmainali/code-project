@@ -12,6 +12,7 @@ gem 'bootstrap'
 gem 'sprockets-rails'
 gem 'jquery-rails'
 gem 'devise'
+gem 'will_paginate-bootstrap4'
 
 group :development, :test do
   gem 'mysql2', '0.4.4'

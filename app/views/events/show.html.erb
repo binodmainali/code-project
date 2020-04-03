@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img src="https://images.unsplash.com/photo-1502759683299-cdcd6974244f?auto=format&fit=crop&w=440&h=220&q=60" class="event-details">
+    </div>
+    <div class="col">
+      <h2>Details</h2>
+      <p><%= @event.name %></p>
+      <p><%= @event.description %></p>
+      <% if multi_day_event(@event)  %>
+        <p>Started on: <%= @event.start_date.strftime("%B %d, %Y") %> -- Ends at: <%= @event.end_date.strftime("%B %d, %Y") %> </p>
+      <% else %>
+        <p>Event Date: <%= @event.start_date.strftime("%B %d, %Y") %> </p>
+      <% end %>
+      <% if current_user %>
+        <% if @already_subscribed  %>
+          <%= link_to 'Unattend', subscribe_unsubscribe_event_path(@event), class: "btn btn-dark" %>
+        <% else %>
+          <%= link_to 'Attend', "#", class: "btn btn-dark" %>
+        <% end  %>
+      <% end  %>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h2>Attendees(<%= @participants.count %>)</h2>
+      <% @participants.each do |participant| %>
+        <div class="attendees"><%= "#{participant.name}(#{participant.gender})" %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

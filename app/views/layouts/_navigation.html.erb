@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-  <div><%= link_to "Home", root_path, class: 'btn btn-light' %></div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div><%= link_to "Home", root_path, class: 'btn btn-dark' %></div>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,10 +7,10 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav ml-auto">
       <% if !user_signed_in? %>
-        <li><%= link_to "Sign in", new_user_session_path, class: 'btn btn-light' %></li>
-        <li><%= link_to "Register", new_user_registration_path, class: 'btn btn-light' %></li>
+        <li><%= link_to "Sign in", new_user_session_path, class: 'btn btn-dark' %></li>
+        <li><%= link_to "Register", new_user_registration_path, class: 'btn btn-dark' %></li>
         <% else %>
-        <li><%= button_to "Logout", destroy_user_session_path, class: 'btn btn-light', data:{ method: :delete } %></li>
+        <li><%= button_to "Logout", destroy_user_session_path, class: 'btn btn-dark', data:{ method: :delete } %></li>
       <% end %>
     </div>
   </div>

@@ -1,2 +1,7 @@
 <% title("Home Page") %>
-<h1><i class="fa fa-home"></i> Home Page <small>views/pages/home.html.erb</small></h1>
+<div class="container-fluid">
+  <% @events.each_slice(3) do |events| %>
+    <%= render partial: 'event_card', locals: { events: events} %>
+  <% end %>
+  <%= will_paginate @events, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
