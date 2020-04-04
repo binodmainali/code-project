@@ -7,14 +7,14 @@
       <h2>Details</h2>
       <p><%= @event.name %></p>
       <p><%= @event.description %></p>
-      <% if multi_day_event(@event)  %>
-        <p>Start Date: <%= @event.start_date.strftime("%B %d, %Y") %> -- Ends at: <%= @event.end_date.strftime("%B %d, %Y") %> </p>
+      <% if @event.multi_day_event?  %>
+        <p>Start Date: <%= time_format(@event.start_date) %> -- Ends at: <%= time_format(@event.end_date) %> </p>
       <% else %>
-        <p>Event Date: <%= @event.start_date.strftime("%B %d, %Y") %> </p>
+        <p>Event Date: <%= time_format(@event.start_date) %> </p>
       <% end %>
-      <p><%= "Ticket Price: ₹#{@event.ticket_price}" %></p>
+      <p><%= "Ticket Price: #{number_to_currency(@event.ticket_price, unit: '₹')}" %></p>
       <% if current_user.try(:female?) && ! @event.free_event? %>
-        <span>Discounted Price for Female's: ₹<%= discounted_price(@event) %></span>
+        <span>Discounted Price for Female's: <%= number_to_currency(@event.discounted_price, unit: '₹') %></span>
         <p></p>
       <% end %>
       <% if current_user %>
