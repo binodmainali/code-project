@@ -15,11 +15,13 @@ class EventsController < ApplicationController
 
   def add_participant
     EventParticipant.create(event_id: event.id, user_id: current_user.id, attending: true)
+    flash[:notice] = "Event attendance confirmed"
     redirect_to event
   end
 
   def remove_participant
      EventParticipant.where(user_id: current_user.id, event_id: event.id).update(attending: false)
+     flash[:notice] = "Event Removal successful"
     redirect_to event
   end
 
