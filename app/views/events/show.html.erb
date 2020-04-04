@@ -12,6 +12,11 @@
       <% else %>
         <p>Event Date: <%= @event.start_date.strftime("%B %d, %Y") %> </p>
       <% end %>
+      <p><%= "Ticket Price: ₹#{@event.ticket_price}" %></p>
+      <% if current_user.try(:female?) && ! @event.free_event? %>
+        <span>Discounted Price for Female's: ₹<%= discounted_price(@event) %></span>
+        <p></p>
+      <% end %>
       <% if current_user %>
         <% if @already_subscribed  %>
           <%= button_to 'Unattend', remove_participant_event_path(@event, attend: false), class: "btn btn-dark" %>
