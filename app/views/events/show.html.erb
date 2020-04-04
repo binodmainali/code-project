@@ -14,9 +14,9 @@
       <% end %>
       <% if current_user %>
         <% if @already_subscribed  %>
-          <%= link_to 'Unattend', subscribe_unsubscribe_event_path(@event), class: "btn btn-dark" %>
+          <%= button_to 'Unattend', remove_participant_event_path(@event, attend: false), class: "btn btn-dark" %>
         <% else %>
-          <%= link_to 'Attend', "#", class: "btn btn-dark" %>
+          <%= button_to 'Attend', add_participant_event_path(@event, attend: true), method: :post, class: "btn btn-dark" %>
         <% end  %>
       <% end  %>
 

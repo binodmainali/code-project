@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_162825) do
+ActiveRecord::Schema.define(version: 2020_04_04_053726) do
 
   create_table "event_participants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.integer "event_id"
+    t.boolean "attending"
+    t.index ["event_id"], name: "index_event_participants_on_event_id"
+    t.index ["user_id", "event_id"], name: "index_event_participants_on_user_id_and_event_id"
   end
 
   create_table "event_pricings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

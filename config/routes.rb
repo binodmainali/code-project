@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root "events#index"
   resources :events,  only: [:index, :show] do
     member do
-      post :subscribe_unsubscribe
+      post :add_participant
+      post :remove_participant
     end
   end
 end
