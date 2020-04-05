@@ -15,13 +15,13 @@ gem 'devise'
 gem 'will_paginate-bootstrap4'
 gem 'pg'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'faker'
 
 group :development, :test do
   # gem 'mysql2', '0.4.4'
   gem 'rspec-rails', '~> 4.0.0'
   gem 'awesome_print'
   gem 'pry-rails'
-  gem 'faker'
 end
 
 group :development do
