@@ -15,6 +15,7 @@ gem 'devise'
 gem 'will_paginate-bootstrap4'
 gem 'pg'
 gem 'bootsnap', '>= 1.4.2', require: false
+# TO seed the data in heroku
 gem 'faker'
 
 group :development, :test do
