@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2020_04_04_094433) do
 
-  create_table "event_participants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "event_participants", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
@@ -22,24 +25,24 @@ ActiveRecord::Schema.define(version: 2020_04_04_094433) do
     t.index ["user_id", "event_id"], name: "index_event_participants_on_user_id_and_event_id"
   end
 
-  create_table "event_pricings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "event_pricings", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "price"
     t.integer "event_id"
   end
 
-  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.string "name"
-    t.timestamp "start_date"
-    t.timestamp "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.string "location"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

@@ -5,13 +5,13 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: root
-  password: root
+  username: mainali
+  password: password
   host: localhost
-  port: 3306
+  port: 5432
 #  socket: /tmp/mysql.sock
 
 development:
