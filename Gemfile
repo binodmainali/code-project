@@ -13,18 +13,20 @@ gem 'sprockets-rails'
 gem 'jquery-rails'
 gem 'devise'
 gem 'will_paginate-bootstrap4'
+gem 'pg'
+gem 'bootsnap', '>= 1.4.2', require: false
+# TO seed the data in heroku
+gem 'faker'
 
 group :development, :test do
-  gem 'mysql2', '0.4.4'
+  # gem 'mysql2', '0.4.4'
   gem 'rspec-rails', '~> 4.0.0'
   gem 'awesome_print'
   gem 'pry-rails'
-  gem 'faker'
 end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'bootsnap', '>= 1.4.2', require: false
 end
 
 group :test do
